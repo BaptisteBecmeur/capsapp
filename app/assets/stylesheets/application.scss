@@ -1,5 +1,13 @@
+// Variables graphiques
+@import "config/variables";
+@import "config/bootstrap_variables";
+
+// librairies externes
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// CSS
+@import "pages/index";
 
 .avatar-small {
   width: 28px;
