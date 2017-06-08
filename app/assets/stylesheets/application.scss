@@ -5,9 +5,13 @@
 // librairies externes
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "vendor/index";
 
 // CSS
 @import "pages/index";
+@import "layout/index";
+@import "components/index";
+
 
 .avatar-small {
   width: 28px;
