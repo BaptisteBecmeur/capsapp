@@ -1,4 +1,4 @@
-class PrestationController < ApplicationController
+class PrestationsController < ApplicationController
 
 before_action :set_prestation, only: [:show, :edit, :update]
 before_action :authenticate_user!, except: [:show]
@@ -44,6 +44,6 @@ before_action :authenticate_user!, except: [:show]
     end
 
     def prestation_params
-     params.require(:prestation).permit(:talent, :showing_type, :duration; :zone_km, :name_scene, :listing_name, :summary, :address, :zip_code, :city, :country, :is_equipment, :is_indoor, :price, :active )
+     params.require(:prestation).permit(:talent, :showing_type, :duration, :zone_km, :name_scene, :listing_name, :summary, :address, :zip_code, :city, :country, :is_equipment, :is_indoor, :price, :active )
     end
 end
