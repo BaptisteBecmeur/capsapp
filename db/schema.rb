@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608205335) do
+ActiveRecord::Schema.define(version: 20170609201724) do
+
+  create_table "prestations", force: :cascade do |t|
+    t.string   "talent"
+    t.string   "showing_type"
+    t.integer  "duration"
+    t.integer  "zone_km"
+    t.string   "name_scene"
+    t.string   "listing_name"
+    t.text     "summary"
+    t.string   "address"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "country"
+    t.boolean  "is_equipment"
+    t.boolean  "is_indoor"
+    t.boolean  "is_outdoor"
+    t.integer  "price"
+    t.boolean  "active"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["user_id"], name: "index_prestations_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
