@@ -44,12 +44,7 @@
             <div class="form-group">
               <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmation du mot de passe" %>
             </div>
-            <div class="form-group">
-            <br />
-            <h4>Renseignez votre mot de passe actuel pour valider</h4>
-              <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "Mot de passe actuel (pour confirmer tout changement)" %>
-              </div>
-              <div class="actions">
+            <div class="actions">
               <%= f.submit "Enregistrer", class: "btn btn-primary" %>
           </div>
         <% end %>
