@@ -3,6 +3,7 @@ class PrestationsController < ApplicationController
 before_action :set_prestation, only: [:show, :edit, :update]
 before_action :authenticate_user!, except: [:show]
 before_action :require_same_user, only: [:edit, :update]
+
   def index
     @prestations = current_user.prestations
   end
@@ -36,9 +37,9 @@ before_action :require_same_user, only: [:edit, :update]
 
   def update
     if prestation.update(prestation_params)
-       if params[:images]
+      if params[:images]
           params[:images].each do |i|
-            @prestation.photos.create(image: i)
+          @prestation.photos.create(image: i)
         end
       end
       @photos = @prestation.photos
@@ -49,21 +50,23 @@ before_action :require_same_user, only: [:edit, :update]
   end
 
   def destroy
+    @prestation.destroy
+    redirect_to user_path(current_user)
   end
 
   private
-    def set_prestation
-      @prestation = Prestation.find(params[:id])
-    end
+  def set_prestation
+    @prestation = Prestation.find(params[:id])
+  end
 
-    def prestation_params
-     params.require(:prestation).permit(:talent, :showing_type, :duration, :zone_km, :name_scene, :listing_name, :summary, :address, :zip_code, :city, :country, :is_equipment, :is_indoor, :price, :active )
-    end
+  def prestation_params
+    params.require(:prestation).permit(:talent, :showing_type, :duration, :zone_km, :name_scene, :listing_name, :summary, :address, :zip_code, :city, :country, :is_equipment, :is_indoor, :price, :active )
+  end
 
-    def require_same_user
-      if current_user.id != @prestation.user_id
-        flash[:danger] = "Vous n'avez pas le droit de modifier cette page"
-        redirect_to root_path
-      end
+  def require_same_user
+    if current_user.id != @prestation.user_id
+      flash[:danger] = "Vous n'avez pas le droit de modifier cette page"
+      redirect_to root_path
     end
+  end
 end
