@@ -1,5 +1,6 @@
 class Prestation < ApplicationRecord
   belongs_to :user
+  has_many :photos
 
   validates :talent, presence: true
   validates :showing_type, presence: true
