@@ -31,7 +31,7 @@ before_action :require_same_user, only: [:edit, :update]
   end
 
   def edit
-    @photos = @room.photos
+    @photos = @prestation.photos
   end
 
   def update
@@ -61,7 +61,7 @@ before_action :require_same_user, only: [:edit, :update]
     end
 
     def require_same_user
-      if current_user.id != @room.user_id
+      if current_user.id != @prestation.user_id
         flash[:danger] = "Vous n'avez pas le droit de modifier cette page"
         redirect_to root_path
       end
