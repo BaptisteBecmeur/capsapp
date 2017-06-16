@@ -29,6 +29,7 @@ gem 'rails-i18n'
 
 # Paperclip
 gem "paperclip", "~> 5.0.0"
+gem "paperclip-cloudinary"
 
 gem 'toastr-rails'
 

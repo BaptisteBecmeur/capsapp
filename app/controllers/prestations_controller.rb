@@ -36,7 +36,7 @@ before_action :require_same_user, only: [:edit, :update]
   end
 
   def update
-    if prestation.update(prestation_params)
+    if @prestation.update(prestation_params)
       if params[:images]
           params[:images].each do |i|
           @prestation.photos.create(image: i)
