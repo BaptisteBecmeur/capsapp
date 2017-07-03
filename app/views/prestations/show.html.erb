@@ -23,19 +23,19 @@
 
         <div class="row text-center row-space-1">
           <div class="col-sm-3">
-            <i class="fa fa-home fa-2x"></i>
+            <i class="fa fa-star-o fa-2x"></i>
           </div>
 
           <div class="col-sm-3">
-            <i class="fa fa-users fa-2x"></i>
+            <i class="fa fa-magic fa-2x"></i>
           </div>
 
           <div class="col-sm-3">
-            <i class="fa fa-bed fa-2x"></i>
+            <i class="fa fa-clock-o fa-2x"></i>
           </div>
 
           <div class="col-sm-3">
-            <i class="fa fa-bath fa-2x"></i>
+            <i class="fa fa-location-arrow fa-2x"></i>
           </div>
         </div>
 
@@ -76,20 +76,71 @@
         <!-- Equipements -->
         <div class="row">
           <div class="col-md-2">
-            <p>Equipements</p>
+            <p>Je peux me produire</p>
           </div>
             <div class="col-md-10">
-                <div class="row">
-                    <div class="col-md-6">
-                        <ul class="equipments">
-                            <li class="<%= 'text-line-through' if !@prestation.is_indoor %>">En intérieur</li>
-                            <li class="<%= 'text-line-through' if !@prestation.is_outdoor %>">En extérieur</li>
-                            <li class="<%= 'text-line-through' if !@prestation.is_equipment %>">Équipement</li>
-                        </ul>
-                    </div>
-
+              <div class="row">
+                <div class="col-md-6">
+                  <ul class="equipments">
+                    <li class="<%= 'text-line-through' if !@prestation.is_indoor %>">En intérieur</li>
+                    <li class="<%= 'text-line-through' if !@prestation.is_outdoor %>">En extérieur</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-md-2">
+            <p>Option</p>
+          </div>
+            <div class="col-md-10">
+              <div class="row">
+              <div class="col-md-6">
+              <ul class="equipments">
+                <li class="<%= 'text-line-through' if !@prestation.is_equipment %>">Équipement</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Carousel -->
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                    <% if @photos %>
+                        <% @photos.each do |photo| %>
+                          <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+                          </ol>
+                        <% end %>
+                    <% end %>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                    <% if @photos %>
+                    <% @photos.each do |photo| %>
+                    <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                      <%= image_tag photo.image.url() %>
+                    </div>
+                    <% end %>
+                    <% end %>
+                  </div>
+
+                  <!-- Left and right controls -->
+                  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Précédent</span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Suivant</span>
+                  </a>
+                </div>
+            </div>
+        </div>
+
+
+
   </div>
 </div>

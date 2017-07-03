@@ -1,4 +1,3 @@
-
   <div class="panel panel-default">
     <div class="panel-heading">
         Proposez votre prestation
@@ -37,10 +36,10 @@
             <div class="row">
               <div class="col-md-4 select">
                  <div class="form-group">
-                    <label>Nombre de kilométres : </label>
-                      <%= f.select :zone_km, [["1 chambre",1], ["2 chambres",2],
-                        ["3 chambres", 3], ["4 chambres ou plus",4]],
-                        prompt: "Sélectionner le nombre", class: "form-control" %>
+                    <label>Déplacement (km) : </label>
+                      <%= f.select :zone_km, [["< 10 km", "< 10 km" ], ["10 km", "10 km"],
+                        ["> 10 km", "> 10 km"]],
+                        prompt: "Sélectionner le nombre de km", class: "form-control" %>
                 </div>
               </div>
             </div>
