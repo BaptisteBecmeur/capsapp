@@ -1,1 +1,95 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+        <!-- Photo principale de l'annonce -->
+    <div class="row">
+      <div class="col-md-12">
+        <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length >0 %>
+      </div>
+    </div>
+    <br>
+    <!-- Informations principales -->
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <%= image_tag avatar_url(@prestation.user), class:"img-circle avatar-large" %>
+            <br>
+            <br>
+              <%= @prestation.user.fullname %>
+          </div>
+        <div class="col-md-9">
+        <h4><%= @prestation.name_scene %></h4>
+            <%= @prestation.address %>
 
+        <div class="row text-center row-space-1">
+          <div class="col-sm-3">
+            <i class="fa fa-home fa-2x"></i>
+          </div>
+
+          <div class="col-sm-3">
+            <i class="fa fa-users fa-2x"></i>
+          </div>
+
+          <div class="col-sm-3">
+            <i class="fa fa-bed fa-2x"></i>
+          </div>
+
+          <div class="col-sm-3">
+            <i class="fa fa-bath fa-2x"></i>
+          </div>
+        </div>
+
+        <div class="row text-center">
+
+          <div class="col-sm-3">
+            <%= @prestation.talent %>
+          </div>
+
+          <div class="col-sm-3">
+            <%= @prestation.showing_type %>
+          </div>
+
+          <div class="col-sm-3">
+            <%= @prestation.duration %> <%= @prestation.duration > 1 ? "heures" : "heure" %>
+          </div>
+
+          <div class="col-sm-3">
+            <%= @prestation.zone_km %> <%= @prestation.zone_km > 1 ? "km" : "km" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+            <!-- Formulaire de réservation -->
+    </div>
+      </div>
+        <!-- Description -->
+        <div class="row">
+            <div class="col-md-12">
+                <h2>A propos de cette prestation</h2>
+                <p><%= @prestation.summary %></p>
+            </div>
+        </div>
+
+        <!-- Equipements -->
+        <div class="row">
+          <div class="col-md-2">
+            <p>Equipements</p>
+          </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="equipments">
+                            <li class="<%= 'text-line-through' if !@prestation.is_indoor %>">En intérieur</li>
+                            <li class="<%= 'text-line-through' if !@prestation.is_outdoor %>">En extérieur</li>
+                            <li class="<%= 'text-line-through' if !@prestation.is_equipment %>">Équipement</li>
+                        </ul>
+                    </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
