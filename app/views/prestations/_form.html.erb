@@ -26,8 +26,8 @@
               <div class="col-md-4 select">
                 <div class="form-group">
                     <label> Durée de votre prestation</label>
-                      <%= f.select :duration, [["1 voyageur",1], ["2 voyageurs",2],
-                            ["3 voyageurs", 3], ["4 voyageurs",4], ["5 voyageurs",5], ["6 voyageurs",6]],
+                      <%= f.select :duration, [["1 heure",1], ["2 heures",2],
+                            ["3 heures", 3], ["4 heures",4], ["5 heures",5], ["+ de 5 heures", 6]],
                             prompt: "A sélectionner...", class: "form-control" %>
                 </div>
               </div>
@@ -60,8 +60,8 @@
 
             <div class="row">
               <div class="form-group">
-                <label>Résumé</label>
-                <%= f.text_area :summary, rows:4, placeholder: "Décrivez le décor, l'ambiance, ce qui se trouve à proximité, etc...",
+                <label>Description</label>
+                <%= f.text_area :summary, rows:4, placeholder: "Décrivez-vous, parlez de votre spectacle...",
                         class: "form-control" %>
               </div>
             </div>
@@ -95,7 +95,7 @@
                   <%= f.check_box :is_outdoor %> Prestation en extérieur
                 </div>
                 <div class="form-group">
-                  <%= f.check_box :is_equipment %> Penderie/Commode
+                  <%= f.check_box :is_equipment %> Équipement
                 </div>
               </div>
             </div>
