@@ -1,3 +1,4 @@
+
 <div class="panel panel-default">
   <div class="panel-body">
         <!-- Photo principale de l'annonce -->
@@ -62,85 +63,117 @@
   </div>
 
   <div class="col-md-4">
-            <!-- Formulaire de réservation -->
-    </div>
+                <!-- Formulaire de réservation -->
+        </div>
       </div>
         <!-- Description -->
-        <div class="row">
-            <div class="col-md-12">
-                <h2>A propos de cette prestation</h2>
-                <p><%= @prestation.summary %></p>
-            </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>A propos de cette prestation</h2>
+        <p><%= @prestation.summary %></p>
+    </div>
+  </div>
+  <!-- Equipements -->
+  <div class="row">
+    <div class="col-md-2">
+      <p>Je peux me produire</p>
+    </div>
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="equipments">
+            <li class="<%= 'text-line-through' if !@prestation.is_indoor %>">En intérieur</li>
+            <li class="<%= 'text-line-through' if !@prestation.is_outdoor %>">En extérieur</li>
+          </ul>
         </div>
-
-        <!-- Equipements -->
-        <div class="row">
-          <div class="col-md-2">
-            <p>Je peux me produire</p>
-          </div>
-            <div class="col-md-10">
-              <div class="row">
-                <div class="col-md-6">
-                  <ul class="equipments">
-                    <li class="<%= 'text-line-through' if !@prestation.is_indoor %>">En intérieur</li>
-                    <li class="<%= 'text-line-through' if !@prestation.is_outdoor %>">En extérieur</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        <div class="row">
-          <div class="col-md-2">
-            <p>Option</p>
-          </div>
-            <div class="col-md-10">
-              <div class="row">
-              <div class="col-md-6">
-              <ul class="equipments">
-                <li class="<%= 'text-line-through' if !@prestation.is_equipment %>">Équipement</li>
-            </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <p>Option</p>
+    </div>
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="equipments">
+            <li class="<%= 'text-line-through' if !@prestation.is_equipment %>">Équipement</li>
+          </ul>
           </div>
         </div>
       </div>
     </div>
     <!-- Carousel -->
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                  <!-- Indicators -->
-                    <% if @photos %>
-                        <% @photos.each do |photo| %>
-                          <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
-                          </ol>
-                        <% end %>
-                    <% end %>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+          <% if @photos %>
+            <% @photos.each do |photo| %>
+              <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+              </ol>
+            <% end %>
+          <% end %>
 
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner" role="listbox">
-                    <% if @photos %>
-                    <% @photos.each do |photo| %>
-                    <div class="item <%= 'active' if photo.id == @photos[0].id %>">
-                      <%= image_tag photo.image.url() %>
-                    </div>
-                    <% end %>
-                    <% end %>
-                  </div>
-
-                  <!-- Left and right controls -->
-                  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Précédent</span>
-                  </a>
-                  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Suivant</span>
-                  </a>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <% if @photos %>
+              <% @photos.each do |photo| %>
+                <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                  <%= image_tag photo.image.url() %>
                 </div>
-            </div>
+              <% end %>
+            <% end %>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Précédent</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Suivant</span>
+          </a>
         </div>
+      </div>
+    </div>
 
+    <br/>
 
+   <!-- Google Maps -->
+   <div class="row">
+     <div class="col-md-12">
+       <div id="map"></div>
+
+        <style>
+          #map {
+            width: 100%;
+            height: 400px;
+            background-color: grey;
+          }
+        </style>
+
+        <script>
+          function initMap() {
+            var uluru = {lat: <%= @prestation.latitude %>, lng: <%= @prestation.longitude %>};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuSYjCQ3xtOyrQ8C1QiuAy_Qsyr3xEPwg&callback=initMap">
+        </script>
+
+     </div>
+   </div>
 
   </div>
 </div>
