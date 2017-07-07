@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170704065056) do
+ActiveRecord::Schema.define(version: 20170707124324) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
@@ -48,6 +48,19 @@ ActiveRecord::Schema.define(version: 20170704065056) do
     t.float    "latitude"
     t.float    "longitude"
     t.index ["user_id"], name: "index_prestations_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "prestation_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer  "price"
+    t.integer  "total"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["prestation_id"], name: "index_reservations_on_prestation_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
