@@ -1,13 +1,13 @@
 <div class="col-md-3">
   <ul class="sidebar-list">
-    <li class="sidebar-item"><%= link_to "Mes annonces", prestations_path, class:"sidebar-link active" %></li>
-    <li class="sidebar-item"><%= link_to "Mes réservations", prestations_path, class:"sidebar-link" %></li>
+    <li class="sidebar-item"><%= link_to "Mes prestations", prestations_path, class:"sidebar-link active" %></li>
+    <li class="sidebar-item"><%= link_to "Suivi des réservations", your_reservations_path, class:"sidebar-link" %></li>
       <li class="sidebar-item"><%= link_to "Mes réservations", your_books_path, class:"sidebar-link" %></li>
   </ul>
 </div>
   <div class="col-md-9">
     <div class="panel panel-default">
-      <div class="panel-heading">Mes annonces
+      <div class="panel-heading">Mes prestations
         </div>
           <div class="panel-body">
             <% @prestations.each do |prestation| %>

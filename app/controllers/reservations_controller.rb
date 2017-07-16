@@ -31,6 +31,10 @@ class ReservationsController < ApplicationController
     @books = current_user.reservations
   end
 
+  def your_reservations
+    @prestations = current_user.prestations
+  end
+
 
   private
 
