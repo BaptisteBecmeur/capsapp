@@ -1,13 +1,14 @@
-
 <div class="panel panel-default">
-  <div class="panel-body">
+    <div class="panel-body">
         <!-- Photo principale de l'annonce -->
-    <div class="row">
-      <div class="col-md-12">
+     <div class="row">
+        <div class="col-md-12">
         <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length >0 %>
       </div>
     </div>
+
     <br>
+
     <!-- Informations principales -->
     <div class="row">
       <div class="col-md-8">
@@ -16,10 +17,10 @@
             <%= image_tag avatar_url(@prestation.user), class:"img-circle avatar-large" %>
             <br>
             <br>
-              <%= @prestation.user.fullname %>
-          </div>
-        <div class="col-md-9">
-        <h4><%= @prestation.name_scene %></h4>
+            <%= @prestation.user.fullname %>
+           </div>
+          <div class="col-md-9">
+            <h4><%= @prestation.name_scene %></h4>
             <%= @prestation.address %>
 
         <div class="row text-center row-space-1">
@@ -41,19 +42,15 @@
         </div>
 
         <div class="row text-center">
-
           <div class="col-sm-3">
             <%= @prestation.talent %>
           </div>
-
           <div class="col-sm-3">
             <%= @prestation.showing_type %>
           </div>
-
           <div class="col-sm-3">
             <%= @prestation.duration %> <%= @prestation.duration > 1 ? "heures" : "heure" %>
           </div>
-
           <div class="col-sm-3">
             <%= @prestation.zone_km %> <%= @prestation.zone_km > 1 ? "km" : "km" %>
           </div>
@@ -61,19 +58,18 @@
       </div>
     </div>
   </div>
-    <div class="col-md-4">
-    <!-- Formulaire de rservation -->
+  <div class="col-md-4">
+    <!-- Formulaire de reservation -->
       <%= render 'reservations/form' %>
-
     </div>
   </div>
-        <!-- Description -->
-  <div class="row">
-    <div class="col-md-12">
-      <h2>A propos de cette prestation</h2>
-        <p><%= @prestation.summary %></p>
+      <!-- Description -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2>A propos de cette prestation</h2>
+          <p><%= @prestation.summary %></p>
+      </div>
     </div>
-  </div>
   <!-- Equipements -->
   <div class="row">
     <div class="col-md-2">
@@ -90,6 +86,7 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-2">
       <p>Option</p>
@@ -143,56 +140,52 @@
 
     <br/>
 
-  <!-- Google Maps -->
-  <div class="row">
-    <div class="col-md-12">
-      <div id="map"></div>
-      <style>
-          #map {
-            width: 100%;
-            height: 400px;
-            background-color: grey;
-          }
-      </style>
-      <script>
-          function initMap() {
-            var uluru = {lat: <%= @prestation.latitude %>, lng: <%= @prestation.longitude %>};
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 15,
-              center: uluru
-            });
-            var marker = new google.maps.Marker({
-              position: uluru,
-              map: map
-            });
-          }
-      </script>
-      <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuSYjCQ3xtOyrQ8C1QiuAy_Qsyr3xEPwg&callback=initMap">
-      </script>
-    </div>
-  </div>
-
-  <!-- Artistes à proximité -->
-  <h3>Artiste à proximité</h3>
+    <!-- Google Maps -->
     <div class="row">
-      <% for prestation in @prestation.nearbys(2).limit(3) %>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading preview">
-          <%= image_tag prestation.photos[0].image.url(:medium) if prestation.photos.length > 0 %>
-        </div>
-        <div class="panel-body">
-          <%= link_to prestation.listing_name, prestation %><br>
-            (à <%= (prestation.distance*1.6).round(2) %> km)
-        </div>
+      <div class="col-md-12">
+        <div id="map"></div>
+        <style>
+            #map {
+              width: 100%;
+              height: 400px;
+              background-color: grey;
+            }
+        </style>
+        <script>
+            function initMap() {
+              var uluru = {lat: <%= @prestation.latitude %>, lng: <%= @prestation.longitude %>};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru
+              });
+              var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+              });
+            }
+        </script>
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuSYjCQ3xtOyrQ8C1QiuAy_Qsyr3xEPwg&callback=initMap">
+        </script>
       </div>
     </div>
-    <% end %>
-  </div>
 
-
-
-
+    <!-- Artistes à proximité -->
+    <h3>Artiste à proximité</h3>
+      <div class="row">
+        <% for prestation in @prestation.nearbys(2).limit(3) %>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading preview">
+            <%= image_tag prestation.photos[0].image.url(:medium) if prestation.photos.length > 0 %>
+          </div>
+          <div class="panel-body">
+            <%= link_to prestation.listing_name, prestation %><br>
+              (à <%= (prestation.distance*1.6).round(2) %> km)
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
