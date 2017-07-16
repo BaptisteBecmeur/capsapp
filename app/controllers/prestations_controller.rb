@@ -1,6 +1,6 @@
 class PrestationsController < ApplicationController
 
-before_action :set_prestation, only: [:show, :edit, :update]
+before_action :set_prestation, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!, except: [:show]
 before_action :require_same_user, only: [:edit, :update]
 
@@ -51,7 +51,8 @@ before_action :require_same_user, only: [:edit, :update]
 
   def destroy
     @prestation.destroy
-    redirect_to user_path(current_user)
+    redirect_to prestations_path
+    # redirect_to user_path(current_user)
   end
 
   private
