@@ -106,18 +106,13 @@
       <div class="col-md-10 col-md-offset-1">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
-
-
-
-            <% if @photos %>
-              <ol class="carousel-indicators">
-            <% @photos.each_with_index do |photo, index| %>
-
-                  <li data-target="#myCarousel" data-slide-to="<%= index %>" class="<%= 'active' if photo.id == @photos[0].id %>"></li>
-                  <% end %>
+          <% if @photos %>
+            <ol class="carousel-indicators">
+          <% @photos.each_with_index do |photo, index| %>
+              <li data-target="#myCarousel" data-slide-to="<%= index %>" class="<%= 'active' if photo.id == @photos[0].id %>"></li>
+              <% end %>
               </ol>
           <% end %>
-
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
@@ -142,8 +137,24 @@
         </div>
       </div>
     </div>
-
     <br/>
+
+    <!-- Reviews -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Commentaires <%= @prestation.average_rating %> (<%= @reviews.count %>)</h3>
+
+          <div class="container">
+          <div>
+            <%= render 'reviews/form' if @booked && !@hasReview %> # le formulaire apparait seulement si l’utilisateur a déjà reservé des dates sur ce logement et s’il n’a pas déjà note celui-ci…
+          </div>
+          <div>
+            <%= render 'reviews/list' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Google Maps -->
     <div class="row">

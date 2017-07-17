@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :prestations do
     resources :reservations, only: [:create]
-    resources :reviews, only [:create, :destroy]
+    resources :reviews, only: [:create, :destroy]
   end
   resources :photos
 
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
-  get 'your_books' => 'reservations#your_books', path: 'mes-transactions'
+  get 'your_books' => 'reservations#your_books', path: 'mes-spectacles'
   get '/your_reservations' => 'reservations#your_reservations', path: 'suivi-des-reservations'
 
 
