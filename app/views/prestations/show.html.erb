@@ -106,13 +106,18 @@
       <div class="col-md-10 col-md-offset-1">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
-          <% if @photos %>
-            <% @photos.each do |photo| %>
+
+
+
+            <% if @photos %>
               <ol class="carousel-indicators">
-                  <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+            <% @photos.each_with_index do |photo, index| %>
+
+                  <li data-target="#myCarousel" data-slide-to="<%= index %>" class="<%= 'active' if photo.id == @photos[0].id %>"></li>
+                  <% end %>
               </ol>
-            <% end %>
           <% end %>
+
 
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
