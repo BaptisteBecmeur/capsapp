@@ -1,7 +1,7 @@
-<% if @reviews.count == 0 %># on vérifie si l’annonce a des commentaires
+<% if @reviews.count == 0 %>
       <div class="text-center"><h4>Aucun commentaire.</h4></div>
     <% else %>
-      <% @reviews.order("id desc").each do |r| %> #sinon on affiche nos reviews, boucle pour chaque review avec les infos nécessaires pour la mise en forme
+      <% @reviews.order("id desc").each do |r| %>
       <hr>
       <div class="row">
         <div class="col-md-1">
