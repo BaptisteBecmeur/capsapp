@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'your_books' => 'reservations#your_books', path: 'mes-spectacles'
   get '/your_reservations' => 'reservations#your_reservations', path: 'suivi-des-reservations'
 
+  get'/search' => 'pages#search'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
