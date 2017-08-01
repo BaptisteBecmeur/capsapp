@@ -19,7 +19,7 @@ def search
   @search = @prestations_address.ransack(params[:q])
   @prestations = @search.result
 
-  @arrRooms = @prestations.to_a
+  @arrprestations = @prestations.to_a
 
   if (params[:start_date] && params[:end_date] && !params[:start_date].empty? & !params[:end_date].empty?)
     start_date = Date.parse(params[:start_date])
@@ -31,7 +31,7 @@ def search
     start_date, end_date, start_date, end_date).limit(1)
 
       if not_available.length > 0
-      @arrRooms.delete(room)
+      @arrprestations.delete(room)
       end
     end
   end
