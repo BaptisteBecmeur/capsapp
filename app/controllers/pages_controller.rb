@@ -25,13 +25,13 @@ class PagesController < ApplicationController
       start_date = Date.parse(params[:start_date])
       end_date = Date.parse(params[:end_date])
 
-      @prestations.each do |room|
+      @prestations.each do |prestation|
        not_available = prestation.reservations.where("(? <= start_date AND start_date <= ?) OR
             (? <= end_date AND end_date <= ?) OR (start_date < ? AND ? < end_date)", start_date, end_date,
             start_date, end_date, start_date, end_date).limit(1)
 
         if not_available.length > 0
-        @arrprestations.delete(room)
+        @arrprestations.delete(prestation)
         end
       end
     end
