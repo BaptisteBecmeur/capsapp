@@ -1,102 +1,106 @@
-<div id="wrapper">
-  <div id="sidebar">
-    <div id="widget">
+<div class="container-fluid">
+  <div class="container">
+    <div id="wrapper">
+      <div id="sidebar">
+        <div id="widget">
 
-    </div>
-  </div>
-  <div id="article">
-    <div class="row">
-      <div class="col-md-12">
-        <%= search_form_for @search, url: search_path do |f| %>
-          <div class="row">
-            <div class="col-md-3">
-              <%= text_field_tag :start_date, params[:start_date], placeholder:"Début", class:"form-control" %>
-            </div>
-            <div class="col-md-3">
-              <%= text_field_tag :end_date, params[:end_date], placeholder:"Fin", class:"form-control" %>
-            </div>
-            <div class="col-md-3">
-              <%= f.text_field :price_gteq, placeholder: "Budget min", class: "form-control" %>
-            </div>
-            <div class="col-md-3">
-              <%= f.text_field :price_lteq, placeholder: "Budget max", class: "form-control" %>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-md-4">
-              <%= check_box_tag "q[showing_type_eq_any][]","Spectacle pour tous" %> Spectacle pour tous
-            </div>
-            <div class="col-md-4">
-              <%= check_box_tag "q[showing_type_eq_any][]","Show privé" %> Show privé
-            </div>
-            <div class="col-md-4">
-              <%= check_box_tag "q[showing_type_eq_any][]","Spectacle pour public averti" %> Spectacle pour public averti
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="col-md-4 select">
-              <div class="form-group">
-                <label>Quels talents </label>
-                 <%= f.select :talent_gteq, [["Magicien","Magicien"], ["Jongleur","Jongleur"], ["Acrobate", "Acrobate"]], prompt: "A sélectionner...", class: "form-control" %>
-                    </div>
-                  </div>
-
-                  <div class="col-md-4 select">
-                    <div class="form-group">
-                      <label> Durée </label>
-                        <%= f.select :duration_gteq, [["1 heure",1], ["2 heures",2],
-                            ["3 heures", 3], ["4 heures",4], ["5 heures",5], ["+ de 5 heures", 6]],
-                            prompt: "A sélectionner...", class: "form-control" %>
+        </div>
+      </div>
+      <div id="article">
+        <div class="row">
+          <div class="col-md-12">
+            <%= search_form_for @search, url: search_path do |f| %>
+              <div class="row">
+                <div class="col-md-3">
+                  <%= text_field_tag :start_date, params[:start_date], placeholder:"Début", class:"form-control" %>
+                </div>
+                <div class="col-md-3">
+                  <%= text_field_tag :end_date, params[:end_date], placeholder:"Fin", class:"form-control" %>
+                </div>
+                <div class="col-md-3">
+                  <%= f.text_field :price_gteq, placeholder: "Budget min", class: "form-control" %>
+                </div>
+                <div class="col-md-3">
+                  <%= f.text_field :price_lteq, placeholder: "Budget max", class: "form-control" %>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4">
+                  <%= check_box_tag "q[showing_type_eq_any][]","Spectacle pour tous" %> Spectacle pour tous
+                </div>
+                <div class="col-md-4">
+                  <%= check_box_tag "q[showing_type_eq_any][]","Show privé" %> Show privé
+                </div>
+                <div class="col-md-4">
+                  <%= check_box_tag "q[showing_type_eq_any][]","Spectacle pour public averti" %> Spectacle pour public averti
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-4 select">
+                  <div class="form-group">
+                    <label>Quels talents </label>
+                     <%= f.select :talent_gteq, [["Magicien","Magicien"], ["Jongleur","Jongleur"], ["Acrobate", "Acrobate"]], prompt: "A sélectionner...", class: "form-control" %>
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="col-md-4 select">
-                      <div class="form-group">
-                        <label>Déplacement (km) : </label>
-                          <%= f.select :zone_km_gteq, [["< 10 km", "< 10 km" ], ["10 km", "10 km"],
-                        ["> 10 km", "> 10 km"]],
-                        prompt: "Sélectionner le nombre de km", class: "form-control" %>
+                      <div class="col-md-4 select">
+                        <div class="form-group">
+                          <label> Durée </label>
+                            <%= f.select :duration_gteq, [["1 heure",1], ["2 heures",2],
+                                ["3 heures", 3], ["4 heures",4], ["5 heures",5], ["+ de 5 heures", 6]],
+                                prompt: "A sélectionner...", class: "form-control" %>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 select">
+                          <div class="form-group">
+                            <label>Déplacement (km) : </label>
+                              <%= f.select :zone_km_gteq, [["< 10 km", "< 10 km" ], ["10 km", "10 km"],
+                            ["> 10 km", "> 10 km"]],
+                            prompt: "Sélectionner le nombre de km", class: "form-control" %>
+                            </div>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <%= check_box_tag "q[is_indoor_eq]", true %> Prestation en intérieur
+                          </div>
+                          <div class="col-md-4">
+                            <%= check_box_tag "q[is_outdoor_eq]", true %> Prestation en extérieur
+                          </div>
+                          <div class="col-md-4">
+                            <%= check_box_tag "q[is_equipment_eq]", true %> Équipement
+                          </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                          <%= f.submit "Rechercher", class:"btn btn-primary" %>
+                        </div>
+                      <% end %>
+                  <hr>
+                  <div class="row">
+                    <% if @arrprestations.empty? %>
+                            Aucune annonce ne correpond à votre recherche.
+                    <% else %>
+                      <% @arrprestations.each do |prestation| %>
+                    <div class="col-md-4">
+                      <div class="panel panel-default">
+                        <div class="panel-heading preview">
+                          <%= image_tag prestation.photos[0].image.url(:medium) if prestation.photos.length > 0 %>
+                        </div>
+                        <div class="panel-body">
+                          <%= image_tag avatar_url(prestation.user), class:"img-circle avatar-small" %>
+                          <%= link_to prestation.listing_name, prestation %>
                         </div>
                       </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[is_indoor_eq]", true %> Prestation en intérieur
-                      </div>
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[is_outdoor_eq]", true %> Prestation en extérieur
-                      </div>
-                      <div class="col-md-4">
-                        <%= check_box_tag "q[is_equipment_eq]", true %> Équipement
-                      </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                      <%= f.submit "Rechercher", class:"btn btn-primary" %>
-                    </div>
-                  <% end %>
-              <hr>
-              <div class="row">
-                <% if @arrprestations.empty? %>
-                        Aucune annonce ne correpond à votre recherche.
-                <% else %>
-                  <% @arrprestations.each do |prestation| %>
-                <div class="col-md-4">
-                  <div class="panel panel-default">
-                    <div class="panel-heading preview">
-                      <%= image_tag prestation.photos[0].image.url(:medium) if prestation.photos.length > 0 %>
-                    </div>
-                    <div class="panel-body">
-                      <%= image_tag avatar_url(prestation.user), class:"img-circle avatar-small" %>
-                      <%= link_to prestation.listing_name, prestation %>
-                    </div>
-                  </div>
-                </div>
-            <% end %>
-          <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
