@@ -21,6 +21,19 @@ class PagesController < ApplicationController
 
     @arrprestations = @prestations.to_a
 
+
+    if session[:presta_search] && session[:presta_search] != ""
+      @prestations_talent = Prestation.where(active: true)
+    else
+      @prestations_talent = Prestation.where(active: true).all
+    end
+
+    @search2 = @prestations_talent.ransack(params[:q])
+    @prestations = @search.result
+
+    @arrprestations = @prestations.to_a
+
+
     if (params[:start_date] && params[:end_date] && !params[:start_date].empty? & !params[:end_date].empty?)
       start_date = Date.parse(params[:start_date])
       end_date = Date.parse(params[:end_date])
