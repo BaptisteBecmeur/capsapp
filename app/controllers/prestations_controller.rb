@@ -64,7 +64,7 @@ before_action :require_same_user, only: [:edit, :update]
     # redirect_to user_path(current_user)
   end
 
-  private
+private
   def set_prestation
     @prestation = Prestation.find(params[:id])
   end
