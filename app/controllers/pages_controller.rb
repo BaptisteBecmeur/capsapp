@@ -11,9 +11,9 @@ class PagesController < ApplicationController
     arrResult = Array.new
 
     if session[:presta_search] && session[:presta_search] != ""
-      @prestations_address = Prestation.where(active: true).near(session[:presta_search], 5, order:'distance')
+      @prestations_address = Prestation.where(active: true, talent: params[:talent]).near(session[:presta_search], 5, order:'distance')
     else
-      @prestations_address = Prestation.where(active: true).all
+      @prestations_address = Prestation.where(active: true, talent: params[:talent]).all
     end
 
     @search = @prestations_address.ransack(params[:q])

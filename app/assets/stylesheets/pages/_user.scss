@@ -1,6 +1,7 @@
 body {
  padding-top: 100px;
  color: #565a5c;
+ font-size: 14px;
 }
 
 .container {
@@ -21,25 +22,25 @@ body {
 // Signup + login views
 
 .btn-primary.btn {
-  border: #58E2C2;
+  border: #E42626;
   border-radius: 2px;
   font-weight: bold;
-  background-color: #58E2C2;
+  background-color: #E42626;
   color: #fff;
   padding: 10px 25px 10px 25px;
 }
 
 
 .btn-primary.btn:hover, .btn-primary.btn:focus {
- border-color: #60f7d4;
+ border-color: #e54e4e;
  border-bottom-color: #58E2C2;
- background-color: #60f7d4;
+ background-color: #e54e4e;
  outline:none;
  }
 
 .btn-primary.btn:active {
- border-color: #60f7d4;
- background-color: #60f7d4;
+ border-color: #C41625;
+ background-color: #C41625;
  outline:none;
 }
 
@@ -86,8 +87,9 @@ color: #565a5c;
 }
 
 .form-control {
- border-radius: 2px;
- height: 4rem;
+    border-radius: 2px;
+    height: 4rem;
+    font-size: 14px;
 }
 
 .sidebar-list {

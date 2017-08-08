@@ -13,10 +13,12 @@
         <div class="col-md-3">
           <%= text_field_tag :search, params[:search], placeholder: "Ville",class:"form-control" %>
         </div>
-
-      <div class="col-md-2">
-        <%= text_field_tag :start_date, params[:start_date], placeholder:"Début", class:"form-control" %>
-      </div>
+        <div class="col-md-3">
+          <%= text_field_tag :talent, params[:talent], placeholder: "Prestation",class:"form-control" %>
+        </div>
+        <div class="col-md-2">
+          <%= text_field_tag :start_date, params[:start_date], placeholder:"Début", class:"form-control" %>
+        </div>
       <div class="col-md-2">
         <%= text_field_tag :end_date, params[:end_date], placeholder:"Fin", class:"form-control" %>
       </div>
@@ -56,7 +58,7 @@
   $('#start_date').datepicker({
   dateFormat: 'dd-mm-yy',
   monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août',
-                    'Septembre','Octobre','Novembre','Décembre'],
+              'Septembre','Octobre','Novembre','Décembre'],
   dayNamesMin: ['D','L','M','M','J','V','S'],
   minDate: 0,
   maxDate: '3m',
@@ -70,7 +72,7 @@
   $('#end_date').datepicker({
     dateFormat: 'dd-mm-yy',
     monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août',
-                    'Septembre','Octobre','Novembre','Décembre'],
+                'Septembre','Octobre','Novembre','Décembre'],
     dayNamesMin: ['D','L','M','M','J','V','S'],
     minDate: 0,
     maxDate: '3m',
