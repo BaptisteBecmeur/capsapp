@@ -1,2 +1,55 @@
-<h1>Conversations#index</h1>
-<p>Find me in app/views/conversations/index.html.erb</p>
+div class="row">
+
+     <div class="col-md-12">
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading">Boîte de réception</div>
+
+            <div class="panel-body">
+
+                <div class="container">
+
+                    <% @conversations.each do |conversation| %>
+
+                    <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %> #on attribue à la variable other le role de l’autre interlocuteur, si current_user est le sender alors other est le recipient et sinon l’inverse.
+
+                    <%= link_to conversation_messages_path(conversation) do %>
+
+                          <div class="row conversation">
+
+                               <div class="col-md-2">
+
+                                   <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %> #12
+
+                               </div>
+
+                               <div class="col-md-2">
+
+                                    <%= other.fullname %><br>
+
+                                   <%= conversation.messages.last.created_at%> #on affiche l’heure du dernier message
+
+                               </div>
+
+                               <div class="col-md-8">
+
+                                    <%= conversation.messages.last.content %> #on affiche le dernier message entre ces 2 personnes
+
+                               </div>
+
+                           </div>
+
+                     <% end %>
+
+               <% end %>
+
+           </div>
+
+        </div>
+
+     </div>
+
+    </div>
+
+ </div>
