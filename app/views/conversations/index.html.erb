@@ -8,21 +8,22 @@
               <div class="container">
                 <% @conversations.each do |conversation| %>
 
-                <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %> #on attribue à la variable other le role de l’autre interlocuteur, si current_user est le sender alors other est le recipient et sinon l’inverse.
+                <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %>
 
                 <%= link_to conversation_messages_path(conversation) do %>
 
                   <div class="row conversation">
                     <div class="col-md-2">
-                        <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %> #12
+                        <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %>
                     </div>
 
                       <div class="col-md-2">
                         <%= other.fullname %><br>
-                        <%= conversation.messages.last.created_at%>
+                        <%= timeago_tag conversation.messages.last.created_at, :lang => :fr %>
+
                       </div>
                       <div class="col-md-8">
-                        <%= conversation.messages.last.content %> #on affiche le dernier message entre ces 2 personnes
+                        <%= conversation.messages.last.content %>
                       </div>
                     </div>
                 <% end %>
