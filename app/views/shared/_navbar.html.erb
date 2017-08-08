@@ -30,7 +30,11 @@
             </li>
 
             <li>
-              <%= link_to conversations_path do %><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages<% end %>
+              <%= link_to conversations_path do %>
+              <!-- <div class="badge-container"> -->
+                <i class="fa fa-envelope-o" aria-hidden="true"></i> Messages<% end %>
+                <!-- <div class="badge badge-red">3</div> -->
+              <!-- </div> -->
             </li>
 
             <% if (!user_signed_in?) %>

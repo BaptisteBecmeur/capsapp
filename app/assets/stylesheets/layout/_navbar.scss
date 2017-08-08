@@ -15,3 +15,43 @@
   font-size: 15px;
   opacity: 0.5;
 }
+
+.fa-envelope-o:before {
+  content: "";
+  font-size: 16px;
+}
+
+.fa-star:before {
+  content: "";
+  font-size: 16px;
+}
+
+.avatar-small {
+    width: 23px;
+    position: relative;
+    top: -2px;
+}
+
+.avatar-medium {
+  width: 48px;
+}
+
+.avatar-large {
+  width: 68px;
+}
+
+.avatar-full {
+  width: 100%;
+}
+
+// .alert {
+//   margin: 0;
+//   text-align: center;
+//   color: white;
+// }
+// .alert-info {
+//   background: #000;
+// }
+// .alert-warning {
+//   background: red;
+// }
