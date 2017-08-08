@@ -5,11 +5,11 @@
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
-      <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+      <%= f.email_field :email, autofocus: true, class:"form-control", placeholder: "Email" %>
     </div>
 
     <div class="form-group">
-      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Mot de passe" %>
+      <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder: "Mot de passe" %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
@@ -21,6 +21,12 @@
 
     <div class="actions">
       <%= f.submit "Connexion", class: "btn btn-primary" %>
+
+      <br/>
+      <br/>
+
+      <% link_to "Connexion impossible", new_user_password_path, class:"btn btn-primary" %>
+
     </div>
   <% end %>
 
