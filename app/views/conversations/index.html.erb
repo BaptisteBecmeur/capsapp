@@ -1,55 +1,36 @@
-div class="row">
-
-     <div class="col-md-12">
-
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
         <div class="panel panel-default">
-
-            <div class="panel-heading">Boîte de réception</div>
-
+          <div class="panel-heading">Boîte de réception</div>
             <div class="panel-body">
+              <div class="container">
+                <% @conversations.each do |conversation| %>
 
-                <div class="container">
+                <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %> #on attribue à la variable other le role de l’autre interlocuteur, si current_user est le sender alors other est le recipient et sinon l’inverse.
 
-                    <% @conversations.each do |conversation| %>
+                <%= link_to conversation_messages_path(conversation) do %>
 
-                    <% other = conversation.sender == current_user ? conversation.recipient : conversation.sender %> #on attribue à la variable other le role de l’autre interlocuteur, si current_user est le sender alors other est le recipient et sinon l’inverse.
+                  <div class="row conversation">
+                    <div class="col-md-2">
+                        <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %> #12
+                    </div>
 
-                    <%= link_to conversation_messages_path(conversation) do %>
-
-                          <div class="row conversation">
-
-                               <div class="col-md-2">
-
-                                   <%= image_tag avatar_url(other), class: "img-circle avatar-medium" %> #12
-
-                               </div>
-
-                               <div class="col-md-2">
-
-                                    <%= other.fullname %><br>
-
-                                   <%= conversation.messages.last.created_at%> #on affiche l’heure du dernier message
-
-                               </div>
-
-                               <div class="col-md-8">
-
-                                    <%= conversation.messages.last.content %> #on affiche le dernier message entre ces 2 personnes
-
-                               </div>
-
-                           </div>
-
-                     <% end %>
-
-               <% end %>
-
-           </div>
-
+                      <div class="col-md-2">
+                        <%= other.fullname %><br>
+                        <%= conversation.messages.last.created_at%>
+                      </div>
+                      <div class="col-md-8">
+                        <%= conversation.messages.last.content %> #on affiche le dernier message entre ces 2 personnes
+                      </div>
+                    </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
-
-     </div>
-
+      </div>
     </div>
-
- </div>
+  </div>
+</div>

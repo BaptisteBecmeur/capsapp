@@ -25,8 +25,12 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <%= link_to new_prestation_path do %>
-                <i class="fa fa-star fa-lg"></i> Proposer un spectacle
+                <i class="fa fa-star"></i> Proposer une prestation
               <% end %>
+            </li>
+
+            <li>
+              <%= link_to conversations_path do %><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages<% end %>
             </li>
 
             <% if (!user_signed_in?) %>
