@@ -29,6 +29,8 @@ gem 'rails-i18n'
 
 gem 'rails-timeago'
 
+gem 'figaro'
+
 # Paperclip
 gem "paperclip", "~> 5.0.0"
 gem "paperclip-cloudinary"
