@@ -9,7 +9,7 @@
     </div>
     <div class="col-md-9">
         <div class="panel panel-default">
-            <div class="panel-heading"> Suivi des réservations</div>
+            <div class="panel-heading"> Mes réservations</div>
             <div class="panel-body">
                 <% @prestations.each do |prestation| %>
                 <% prestation.reservations.order("id DESC").each do |reservation| %>
