@@ -3,28 +3,31 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user!
 
   def preload
-       prestation = Prestation.find(params[:prestation_id])
-       today = Date.today
-       reservations = prestation.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+    prestation = Prestation.find(params[:prestation_id])
+    today = Date.today
+    reservations = prestation.reservations.where("start_date >= ? OR end_date >= ?", today, today)
 
-       render json: reservations
-    end
+    render json: reservations
+  end
 
     def preview
-        start_date = Date.parse(params[:start_date])
-        end_date = Date.parse(params[:end_date])
+      start_date = Date.parse(params[:start_date])
+      end_date = Date.parse(params[:end_date])
 
-        output = {
-            conflict: is_conflict(start_date, end_date)
-        }
+      output = {
+        conflict: is_conflict(start_date, end_date)
+      }
 
-        render json: output
+      render json: output
     end
 
 
   def create
     @reservation = current_user.reservations.create(reservation_params)
-    redirect_to @reservation.prestation, notice: "Votre réservation a été acceptée"
+    if @reservation.save
+      AppMailer.new_reservation(Prestation.find(@reservation.prestation_id), @reservation).deliver_now
+      redirect_to @reservation.prestation, notice: "Votre réservation a été acceptée"
+    end
   end
 
   def your_books
