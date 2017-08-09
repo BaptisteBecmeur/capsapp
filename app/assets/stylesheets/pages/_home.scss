@@ -1,6 +1,39 @@
-h1 {
-  font-size: 32px;
-}
+// .coverhome {
+//   background-image: url('http://unsplash.it/1000/700/?random');
+//   background-size: cover;
+//   position:relative;
+//   height: 550px;
+//   width: 100%;
+//   background-repeat: no-repeat;
+//   background-position: 50% 43%;
+//   margin-top: -50px;
+//   text-align:center;
+// }
+
+  h1 {
+    margin:0;
+    padding-top: 150px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight:600;
+    font-size: 45px;
+    color: #fff;
+    text-shadow: 1px 1px #C8C7C7;
+  }
+  p {
+    margin:0;
+    padding-top: 5px;
+    padding-bottom: 150px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight:500;
+    font-size: 20px;
+    color: #fff;
+    // text-shadow: 2px 2px #C8C7C7;
+  }
+
+
 
 .home-link a, p{
   color: #82888a;
