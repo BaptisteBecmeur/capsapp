@@ -1,25 +1,19 @@
 
-
 $(document).ready(function() {
   var show_error, stripeResponseHandler, submitHandler;
   submitHandler = function (event) {
   var $form = $(event.target);
   $form.find("input[type=submit]").prop("disabled", true);
 
-
-//If Stripe was initialized correctly this will create a token using the credit card info
-
-
 if(Stripe){
   Stripe.card.createToken($form, stripeResponseHandler);
 
- } else { # sinon on affiche un message
-
-        $('#stripe').show();
-
-        $('#stripe').text("Erreur, rafraichissez votre page.");
-
  }
+
+ else {
+  $('#stripe').show();
+  $('#stripe').text("Erreur, rafraichissez votre page.");
+}
 
  return false;
 
@@ -27,8 +21,7 @@ if(Stripe){
 
 
 $(".cc_form").on('submit', submitHandler);
-
-      stripeResponseHandler = function (status, response) {
+  stripeResponseHandler = function (status, response) {
 
       var token, $form;
 
