@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
       begin
           @payment.process_payment
       if @payment.save
-      AppMailer.new_reservation(Room.find(@reservation.prestation_id), @reservation).deliver_now
+      AppMailer.new_reservation(Prestation.find(@reservation.prestation_id), @reservation).deliver_now
       redirect_to @reservation.prestation, notice: "Votre réservation a été acceptée"
     end
 
