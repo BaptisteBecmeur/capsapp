@@ -26,9 +26,9 @@
               <%= @prestation.user.fullname %>
               </div>
             <div class="col-md-9">
-                  <h4><%= @prestation.name_scene %></h4>
-                  <a href="#map", class="sidebar-link"><%= @prestation.address %></a> <a href="#average_rating", class="sidebar-link"><span id="average_rating_header"></span> <%= @reviews.count %></a>
-                  <br/>
+              <h4><%= @prestation.name_scene %></h4>
+                <a href="#map", class="sidebar-link"><%= @prestation.address %></a> <a href="#average_rating", class="sidebar-link"><span id="average_rating_header"></span> <%= @reviews.count %></a>
+                <br/>
 
               <div class="row text-center row-space-1">
                 <div class="col-sm-3">
@@ -64,19 +64,15 @@
               </div>
             </div>
           </div>
-        </div>
-              <div class="col-md-4">
-                <!-- Formulaire de reservation -->
-              <%= render 'reservations/form' %>
-              </div>
-            </div>
-          <!-- Description -->
+
+      <!-- Description -->
             <div class="row">
               <div class="col-md-12">
                 <h2>A propos de cette prestation</h2>
                   <p><%= @prestation.summary %></p>
               </div>
             </div>
+            <br/>
             <!-- Equipements -->
             <div class="row">
               <div class="col-md-2">
@@ -108,6 +104,16 @@
                   </div>
                 </div>
               </div>
+
+            </div>
+              <div class="col-md-4">
+                <!-- Formulaire de reservation -->
+              <%= render 'reservations/form' %>
+              </div>
+            </div>
+            <br/>
+            <hr>
+
               <!-- Carousel -->
               <div class="row">
                 <div class="col-md-10 col-md-offset-1">
