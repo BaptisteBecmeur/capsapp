@@ -17,6 +17,9 @@
         <%= f.text_field :end_date, readonly: 'true', placeholder: 'jj/mm/aaaa', class: 'form-control' %>
     </div>
   </div>
+    <%= f.hidden_field :prestation_id, value: @prestation.id %>
+    <%= f.hidden_field :price, value: @prestation.price %>
+    <%= f.hidden_field :total, id: 'reservation_total' %>
 
   <h5><div id="message"></div></h5>
 
@@ -63,9 +66,6 @@
   <% end %>
   </div>
 
-    <%= f.hidden_field :prestation_id, value: @prestation.id %>
-    <%= f.hidden_field :price, value: @prestation.price %>
-    <%= f.hidden_field :total, id: 'reservation_total' %>
 
     <%= f.submit "Demande de réservation", id:"btn_book", class:"btn btn-primary wide", disabled: 'true' %>
 
@@ -93,8 +93,7 @@
 
         $('#reservation_start_date').datepicker({
           dateFormat: 'dd-mm-yy',
-          monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août',
-            'Septembre','Octobre','Novembre','Décembre'],
+          monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
           dayNamesMin: ['D','L','M','M','J','V','S'],
           minDate: 0,
           maxDate: '3m',
@@ -151,8 +150,8 @@
 
             var start_date = $('#reservation_start_date').datepicker('getDate');
             var end_date = $(this).datepicker('getDate');
-            // var diff = (end_date - start_date)/1000/60/60/24;
-            // var days = Math.round(diff);
+            var diff = (end_date - start_date)/1000/60/60/24;
+            var days = Math.round(diff);
 
             var input = {
               'start_date': start_date,

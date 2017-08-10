@@ -13,6 +13,9 @@
             <div class="panel-body">
                 <% @books.order("id DESC").each do |book| %>
                 <div class="row">
+                  <div class="col-md-2">
+                       Du <%= book.start_date.strftime('%d.%m.%y') %> au <%= book.end_date.strftime('%d.%m.%y') %>
+                   </div>
 
                    <div class="col-md-6">
                        <%= link_to prestation_path(book.prestation) do %>

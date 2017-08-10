@@ -24,21 +24,13 @@ $(".cc_form").on('submit', submitHandler);
   stripeResponseHandler = function (status, response) {
 
       var token, $form;
-
        $form = $('.cc_form');
-
        if (response.error && response.error.type == 'card_error' ) {
-
               $('#stripe').show();
-
               if (response.error.type == 'card_error' ){
-
               $('#stripe').text("Numéro de carte bleue invalide.");
-
-              }
-
-              $form.find("input[type=submit]").prop("disabled", false);
-
+            }
+          $form.find("input[type=submit]").prop("disabled", false);
        }
   else {
               $('#stripe').hide();
