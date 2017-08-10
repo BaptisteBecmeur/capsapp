@@ -1,7 +1,7 @@
 
 
 $(document).ready(function() {
-  var show_error, stripeResponseHandler, submitHandler; #1
+  var show_error, stripeResponseHandler, submitHandler;
   submitHandler = function (event) {
   var $form = $(event.target);
   $form.find("input[type=submit]").prop("disabled", true);
@@ -26,7 +26,7 @@ if(Stripe){
  };
 
 
-$(".cc_form").on('submit', submitHandler); #2 cc form, on va récupérer les infos bancaires du formulaire précédemment créé avec submitHandler !
+$(".cc_form").on('submit', submitHandler);
 
       stripeResponseHandler = function (status, response) {
 
