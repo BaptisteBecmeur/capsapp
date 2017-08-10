@@ -22,11 +22,25 @@ class ReservationsController < ApplicationController
     end
 
 
-  def create
-    @reservation = current_user.reservations.create(reservation_params)
-    if @reservation.save
-      AppMailer.new_reservation(Prestation.find(@reservation.prestation_id), @reservation).deliver_now
+    def create
+      @reservation = current_user.reservations.create(reservation_params)
+      if @reservation.persisted?
+        @payment = Payment.new({ email: User.find(@reservation.user_id).email, token: params[:payment]["token"], reservation_id: @reservation.id, amount: @reservation.total })
+      begin
+          @payment.process_payment
+      if @payment.save
+      AppMailer.new_reservation(Room.find(@reservation.prestation_id), @reservation).deliver_now
       redirect_to @reservation.prestation, notice: "Votre réservation a été acceptée"
+    end
+
+    rescue Exception
+      @reservation.destroy
+      puts 'Le paiement a échoué'
+      redirect_to @reservation.prestation, notice: "Votre paiement a été refusé"
+    end
+
+    else
+      redirect_to @reservation.prestation, notice: "Votre réservation a échoué"
     end
   end
 
