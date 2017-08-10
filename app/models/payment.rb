@@ -1,6 +1,6 @@
 class Payment < ApplicationRecord
 
-  attr_accessor :card_number, :card_cvv, :card_espires_month, :card_expires_year
+  attr_accessor :card_number, :card_cvc, :card_espires_month, :card_expires_year
   belongs_to :user
 
   def self.month_options
@@ -13,8 +13,8 @@ class Payment < ApplicationRecord
   end
 
   def process_payment
-    customer = Stripe::Customer.create email: email, card: token #on crée un client avec un email et un token généré par votre numéro de carte bleue
-    Stripe::Charge.create customer: customer.id,#à partir de ce client, si le paiement est valide on crée le paiement
+    customer = Stripe::Customer.create email: email, card: token
+    Stripe::Charge.create customer: customer.id,
                           amount: Reservation.last.total*100,
                           description: 'Réservation Capsss',
                           currency: 'eur'

@@ -43,8 +43,8 @@
             <%= p.text_field :card_number, class: "form-control", required: true, data: { stripe: 'number'} %>
           </div>
             <div class="form-group col-md-3">
-              <%= p.label :card_cvv, "CVV", data: { stripe: 'label'} %>
-              <%= p.text_field :card_cvv, class: "form-control", required: true, data: { stripe: 'cvv'} %>
+              <%= p.label :card_cvc, "CVV", data: { stripe: 'label'} %>
+              <%= p.text_field :card_cvc, class: "form-control", required: true, data: { stripe: 'cvc'} %>
             </div>
           </div>
 
