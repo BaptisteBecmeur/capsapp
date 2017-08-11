@@ -1,6 +1,12 @@
-.container {
+.background-size {
+  background-image: url('http://unsplash.it/1000/700/?random');
+  background-size: cover;
+  height: 550px;
   width: 100%;
-}
+  background-repeat: no-repeat;
+  background-position: 50% 43%;
+  margin-top:0;
+  text-align:center;}
 
 
   h1 {
