@@ -1,4 +1,4 @@
-.background-size {
+.coverhome {
   background-image: url('http://unsplash.it/1000/700/?random');
   background-size: cover;
   height: 550px;
@@ -6,7 +6,26 @@
   background-repeat: no-repeat;
   background-position: 50% 43%;
   margin-top:0;
-  text-align:center;}
+  text-align:center;
+
+.search-form {
+    background-color: rgba(88,226,194,0.6);
+    padding: 20px;
+    border-radius: 4px;
+    margin-top:50px;
+
+    // .form-control-home {
+    //   padding: 20px;
+    //   width: 450px;
+    // }
+
+    .btn-success {
+      padding: 9px 20px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+}
 
 
   h1 {
