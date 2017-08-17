@@ -1,18 +1,31 @@
 .coverhome {
-  background-image: url('http://unsplash.it/1000/700/?random');
+  background-image: url('http://res.cloudinary.com/hisfbkv99/image/upload/v1502968938/events_e9wgnv.jpg');
   background-size: cover;
-  height: 550px;
+  height: 635px;
   width: 100%;
   background-repeat: no-repeat;
   background-position: 50% 43%;
   margin-top:0;
   text-align:center;
+  position: relative;
+  bottom: 55px;
 
-.search-form {
-    background-color: rgba(88,226,194,0.6);
-    padding: 20px;
-    border-radius: 4px;
-    margin-top:50px;
+ .subtitle {
+    margin:0;
+    padding-bottom: 100px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight:500;
+    font-size: 18px;
+    color: #fff;
+    // text-shadow: 2px 2px #C8C7C7;
+
+
+// .search-form {
+//     background-color: rgba(88,226,194,0.6);
+//     padding: 20px;
+//     border-radius: 4px;
+//     margin-top:50px;
 
     // .form-control-home {
     //   padding: 20px;
@@ -38,18 +51,6 @@
     font-size: 45px;
     color: #fff;
     text-shadow: 1px 1px #C8C7C7;
-  }
-
-  .subtitle {
-    margin:0;
-    padding-top: 5px;
-    padding-bottom: 100px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight:500;
-    font-size: 18px;
-    color: #fff;
-    // text-shadow: 2px 2px #C8C7C7;
   }
 
 
