@@ -33,6 +33,8 @@ gem 'figaro'
 
 gem 'stripe'
 
+gem 'simple_form'
+
 # Paperclip
 gem "paperclip", "~> 5.0.0"
 gem "paperclip-cloudinary"
