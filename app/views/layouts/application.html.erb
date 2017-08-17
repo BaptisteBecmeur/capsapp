@@ -13,9 +13,7 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/message' %>
-    <div class="container">
       <%= yield %>
-    </div>
     <br/>
       <%= render 'shared/footer' %>
     <%= yield(:after_js) %>
