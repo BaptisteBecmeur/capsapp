@@ -44,6 +44,10 @@
   width: 100%;
 }
 
+.container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
+    margin-right: 30px;
+    margin-left: 10px;
+}
 // .alert {
 //   margin: 0;
 //   text-align: center;

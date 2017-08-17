@@ -42,14 +42,30 @@
                 <li>
                   <%= link_to conversations_path do %>
                     <!-- <div class="badge-container"> -->
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i> Messages<% end %>
+                      <i class="fa fa-envelope-o" aria-hidden="true"></i> Messages
+                    <% end %>
                     <!-- <div class="badge badge-red">3</div> -->
                     <!-- </div> -->
                 </li>
-                <li><%= link_to 'Mes prestations', prestations_path %></li>
-                <li><%= link_to 'Mes réservations', your_reservations_path %></li>
-                <li><%= link_to 'Suivi', your_books_path %></li>
-                <li><%= link_to 'Modifier mon profil', edit_user_registration_path%></li>
+                <li>
+                  <%= link_to prestations_path do %>
+                    <i class="fa fa-star" aria-hidden="true"></i></i> Mes prestations
+                  <% end %>
+                </li>
+                <li><%= link_to your_reservations_path do %>
+                  <i class="fa fa-calendar" aria-hidden="true"></i> Mes réservations
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to your_books_path do%>
+                     <i class="fa fa-check-square-o" aria-hidden="true"></i> Suivi
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to edit_user_registration_path do%>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier mon profil
+                  <% end %>
+                </li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %></li>
 

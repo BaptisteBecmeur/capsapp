@@ -12,10 +12,8 @@
             <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length >0 %>
           </div>
         </div>
-
         <br>
-
-          <!-- Informations principales -->
+      <!-- Informations principales -->
       <div class="row">
         <div class="col-md-8">
           <div class="row">
@@ -34,20 +32,16 @@
                 <div class="col-sm-3">
                   <i class="fa fa-star-o fa-2x"></i>
                 </div>
-
                 <div class="col-sm-3">
                   <i class="fa fa-magic fa-2x"></i>
                 </div>
-
                 <div class="col-sm-3">
                   <i class="fa fa-clock-o fa-2x"></i>
                 </div>
-
                 <div class="col-sm-3">
                   <i class="fa fa-location-arrow fa-2x"></i>
                 </div>
               </div>
-
               <div class="row text-center">
                 <div class="col-sm-3">
                   <%= @prestation.talent %>
