@@ -48,6 +48,22 @@
     margin-right: 30px;
     margin-left: 10px;
 }
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+    border-radius: 1px;
+}
+
 // .alert {
 //   margin: 0;
 //   text-align: center;
