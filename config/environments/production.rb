@@ -6,7 +6,7 @@ Rails.application.configure do
   })
 
   config.action_mailer.delivery_method = :smtp #aucun mail en local
-  config.action_mailer.default_url_options = { :host => 'caps-app.herokuapp.com', :protocol => 'https'}
+  config.action_mailer.default_url_options = { :host => 'capsss.herokuapp.com', :protocol => 'https'}
 
   # Settings specified here will take precedence over those in config/application.rb.
 
