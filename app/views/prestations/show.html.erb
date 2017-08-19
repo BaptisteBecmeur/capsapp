@@ -163,36 +163,36 @@
               </div>
 
               <!-- Google Maps -->
-              <div class="row">
-                <div class="col-md-12">
-                  <div id="map"></div>
-                  <style>
-                      #map {
-                        width: 100%;
-                        height: 400px;
-                        background-color: grey;
-                      }
-                  </style>
-                  <script>
-                      function initMap() {
-                        var uluru = {lat: <%= @prestation.latitude %>, lng: <%= @prestation.longitude %>};
-                        var map = new google.maps.Map(document.getElementById('map'), {
-                          zoom: 15,
-                          center: uluru
-                        });
-                        var image = '../assets/caps-ggl.png';
-                        var marker = new google.maps.Marker({
-                          position: uluru,
-                          map: map,
-                          icon: image
-                        });
-                      }
-                  </script>
-                  <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuSYjCQ3xtOyrQ8C1QiuAy_Qsyr3xEPwg&callback=initMap">
-                  </script>
-                </div>
-              </div>
+              <!-- Google maps -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="map"></div>
+
+                <style>
+                   #map {
+                    height: 400px;
+                    width: 100%;
+                   }
+                </style>
+
+                <script>
+                  function initMap() {
+                    var uluru = {lat: <%= @prestation.latitude %>, lng: <%= @prestation.longitude %>};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 15,
+                      center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                      position: uluru,
+                      map: map
+                    });
+                  }
+                </script>
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuSYjCQ3xtOyrQ8C1QiuAy_Qsyr3xEPwg&callback=initMap">
+                </script>
+            </div>
+        </div>
 
               <!-- Artistes à proximité -->
               <h3>Artiste à proximité</h3>
