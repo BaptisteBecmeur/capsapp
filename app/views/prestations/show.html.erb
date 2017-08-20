@@ -33,28 +33,22 @@
               <div class="row text-center row-space-1">
                 <div class="col-sm-3">
                   <i class="fa fa-star-o fa-2x"></i>
-                </div>
-                <div class="col-sm-3">
-                  <i class="fa fa-magic fa-2x"></i>
-                </div>
-                <div class="col-sm-3">
-                  <i class="fa fa-clock-o fa-2x"></i>
-                </div>
-                <div class="col-sm-3">
-                  <i class="fa fa-location-arrow fa-2x"></i>
-                </div>
-              </div>
-              <div class="row text-center">
-                <div class="col-sm-3">
+                  <br/>
                   <%= @prestation.talent %>
                 </div>
                 <div class="col-sm-3">
+                  <i class="fa fa-magic fa-2x"></i>
+                  <br/>
                   <%= @prestation.showing_type %>
                 </div>
                 <div class="col-sm-3">
+                  <i class="fa fa-clock-o fa-2x"></i>
+                  <br/>
                   <%= @prestation.duration %> <%= @prestation.duration > 1 ? "heures" : "heure" %>
                 </div>
                 <div class="col-sm-3">
+                  <i class="fa fa-location-arrow fa-2x"></i>
+                  <br/>
                   <%= @prestation.zone_km %> <%= @prestation.zone_km > 1 ? "km" : "km" %>
                 </div>
               </div>
@@ -168,7 +162,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="map"></div>
-
 
                 <style>
                    #map {
