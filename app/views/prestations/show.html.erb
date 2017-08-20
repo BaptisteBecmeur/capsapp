@@ -21,7 +21,9 @@
               <%= image_tag avatar_url(@prestation.user), class:"img-circle avatar-large" %>
               <br>
               <br>
+              <%= link_to @prestation.user do %>
               <%= @prestation.user.fullname %>
+              <% end %>
               </div>
             <div class="col-md-9">
               <h4><%= @prestation.name_scene %></h4>
@@ -162,7 +164,6 @@
                 </div>
               </div>
 
-              <!-- Google Maps -->
               <!-- Google maps -->
         <div class="row">
             <div class="col-md-12">
@@ -195,22 +196,7 @@
         </div>
 
               <!-- Artistes à proximité -->
-              <h3>Artiste à proximité</h3>
-              <div class="row">
-                <% for prestation in @prestation.nearbys(2).limit(3) %>
-              <div class="col-md-4">
-                <div class="panel panel-default">
-                  <div class="panel-heading preview">
-                    <%= image_tag prestation.photos[0].image.url(:medium) if prestation.photos.length > 0 %>
-                  </div>
-                  <div class="panel-body">
-                    <%= link_to prestation.listing_name, prestation %><br>
-                      (à <%= (prestation.distance*1.6).round(2) %> km)
-                  </div>
-                </div>
-              </div>
-              <% end %>
-            </div>
+
           </div>
         </div>
       </div>
