@@ -1,5 +1,6 @@
 class PrestationsController < ApplicationController
 
+
 before_action :set_prestation, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!, except: [:show]
 before_action :require_same_user, only: [:edit, :update]
