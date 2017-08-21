@@ -1,8 +1,8 @@
 
 <div class="container-fluid">
 <div class="panel panel-default">
-  <div class="panel-heading">
-    Prestation <% if @prestation.user == current_user %><%= link_to "Je supprime ma prestation", prestation_path(@prestation), method: :delete, data: {confirm: "Supprimer mon annonce?"} %>
+  <div class="panel-heading text-center">
+    <%= @prestation.listing_name %> <% if @prestation.user == current_user %><%= link_to "Je supprime ma prestation", prestation_path(@prestation), method: :delete, data: {confirm: "Supprimer mon annonce?"} %>
     <% end %>
 
   </div>
