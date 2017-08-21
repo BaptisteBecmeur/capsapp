@@ -172,9 +172,9 @@
 
                 <script>
                   function initMap() {
-                    var uluru = {lat: <%= @prestation.latitude %>, lng: <%= @prestation.longitude %>};
+                     var uluru = {lat: <%= @prestation.latitude %>, lng: <%= @prestation.longitude %>};
                     var map = new google.maps.Map(document.getElementById('map'), {
-                      zoom: 15,
+                      zoom: 4,
                       center: uluru
                     });
                     var marker = new google.maps.Marker({
@@ -184,10 +184,12 @@
                   }
                 </script>
                 <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuSYjCQ3xtOyrQ8C1QiuAy_Qsyr3xEPwg&callback=initMap">
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRw26oLIS-kzyqa1TPC3O9hGd-COyFr8M&callback=initMap">
                 </script>
-            </div>
-        </div>
+                </div>
+              </div>
+
+
 
 
               <!-- Artistes à proximité -->
@@ -196,7 +198,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 
 <script>
   $('#average_rating').raty({
@@ -213,3 +215,4 @@
     score: <%= @prestation.average_rating %>
   });
 </script>
+
