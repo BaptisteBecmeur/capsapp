@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @prestations = Prestation.order("RANDOM()").limit(3)
+    @prestations = Prestation.order("RANDOM()").limit(9)
   end
 
   def search
