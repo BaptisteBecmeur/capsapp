@@ -119,7 +119,7 @@
             <div class="actions">
               <%= f.submit "Je valide mon annonce", class: "btn btn-primary"%>
               <% if controller.action_name == 'edit' && Rails.env.development? %>
-                  <br /><br /><br />
+                  <br />
                 <%= link_to "Je supprime mon annonce", prestation_path(@prestation), method: :delete, data: {confirm: "Supprimer mon annonce?"} %>
               <% end %>
             </div>

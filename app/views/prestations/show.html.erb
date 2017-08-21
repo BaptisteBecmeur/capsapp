@@ -2,7 +2,9 @@
 <div class="container-fluid">
 <div class="panel panel-default">
   <div class="panel-heading">
-    Prestation
+    Prestation <% if @prestation.user == current_user %><%= link_to "Je supprime ma prestation", prestation_path(@prestation), method: :delete, data: {confirm: "Supprimer mon annonce?"} %>
+    <% end %>
+
   </div>
     <div class="panel-body">
       <div class="container">
