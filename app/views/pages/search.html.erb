@@ -8,7 +8,7 @@
                     <% if @arrprestations.length > 0 %>
                         var uluru = {lat: <%= @arrprestations[0].latitude %>, lng: <%= @arrprestations[0].longitude %>};
                         var map = new google.maps.Map(document.getElementById('widget'), {
-                          zoom: 13,
+                          zoom: 8,
                           center: uluru
                         });
                     <% else %>
