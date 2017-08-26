@@ -1,8 +1,7 @@
 class PrestationsController < ApplicationController
 
-
-before_action :set_prestation, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, except: [:show]
+before_action :set_prestation, only: [:edit, :update, :destroy]
+before_action :authenticate_user! #, except: [:show]
 before_action :require_same_user, only: [:edit, :update]
 
   def index
@@ -10,9 +9,9 @@ before_action :require_same_user, only: [:edit, :update]
   end
 
   def show
+
     @photos = @prestation.photos
     @booked = Reservation.where("prestation_id = ? AND user_id = ?", @prestation.id, current_user.id).present?
-
     @reviews = @prestation.reviews
     if current_user
       @reviews = @prestation.reviews
