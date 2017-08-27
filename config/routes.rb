@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
-  get 'your_books' => 'reservations#your_books', path: 'mes-spectacles'
+  get '/your_books' => 'reservations#your_books', path: 'mes-spectacles'
   get '/your_reservations' => 'reservations#your_reservations', path: 'suivi-des-reservations'
 
   get'/search' => 'pages#search'

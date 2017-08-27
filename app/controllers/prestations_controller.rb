@@ -9,13 +9,12 @@ before_action :require_same_user, only: [:edit, :update]
   end
 
   def show
-
     @photos = @prestation.photos
     @booked = Reservation.where("prestation_id = ? AND user_id = ?", @prestation.id, current_user.id).present?
-
       @reviews = @prestation.reviews
-
+    if current_user
       @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
+    end
   end
 
   def new
@@ -67,7 +66,7 @@ private
   end
 
   def prestation_params
-    params.require(:prestation).permit(:talent, :showing_type, :duration, :zone_km, :name_scene, :listing_name, :summary, :address, :zip_code, :city, :country, :is_equipment, :is_indoor, :price, :active )
+    params.require(:prestation).permit(:talent, :showing_type, :duration, :zone_km, :name_scene, :listing_name, :summary, :address, :zip_code, :city, :country, :is_equipment, :is_indoor, :price, :active)
   end
 
   def require_same_user
