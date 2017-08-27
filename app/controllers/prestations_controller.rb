@@ -14,11 +14,8 @@ before_action :require_same_user, only: [:edit, :update]
     @booked = Reservation.where("prestation_id = ? AND user_id = ?", @prestation.id, current_user.id).present?
 
       @reviews = @prestation.reviews
-    if current_user
+
       @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
-    end
-
-
   end
 
   def new
