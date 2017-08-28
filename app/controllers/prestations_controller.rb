@@ -1,6 +1,6 @@
 class PrestationsController < ApplicationController
 
-before_action :set_prestation, only: [:edit, :update, :destroy]
+before_action :set_prestation, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!, except: [:show]
 before_action :require_same_user, only: [:edit, :update]
 
@@ -11,10 +11,9 @@ before_action :require_same_user, only: [:edit, :update]
   def show
     @photos = @prestation.photos
     @booked = Reservation.where("prestation_id = ? AND user_id = ?", @prestation.id, current_user.id).present?
-      @reviews = @prestation.reviews
-    if current_user
-      @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
-    end
+    @reviews = @prestation.reviews
+    @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
+
   end
 
   def new
