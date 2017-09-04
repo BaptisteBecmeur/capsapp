@@ -63,15 +63,15 @@
                   <%= check_box_tag "q[showing_type_eq_any][]","show privé" %> Show privé
                 </div>
                 <div class="col-md-4">
-                  <%= check_box_tag "q[showing_type_eq_any][]","spectacle pour public averti" %> Psublic averti
+                  <%= check_box_tag "q[showing_type_eq_any][]","spectacle pour public averti" %> Public averti
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md-4 select">
                   <div class="form-group">
-                    <label>Quels talents </label>
-                     <%= f.select :talent_gteq, [["Magicien","Magicien"], ["Mentaliste","Mentaliste"], ["Jongleur","Jongleur"], ["Cracheur de feu","Cracheur de feu"], ["Musicien","Musicien"], ["DJ","DJ"], ["Danseur","Danseur"]], prompt: "A sélectionner...", class: "form-control" %>
+                    <label>Prestation </label>
+                     <%= f.select :talent_gteq, [["Magicien","Magicien"], ["Mentaliste","Mentaliste"], ["Jongleur","Jongleur"], ["Cracheur de feu","Cracheur de feu"], ["Musicien","Musicien"], ["DJ","DJ"], ["Danseur","Danseur"], ["Photographe","Photographe"], ["Dessinateur","Dessinateur"]], prompt: "A sélectionner...", class: "form-control" %>
                         </div>
                       </div>
 
