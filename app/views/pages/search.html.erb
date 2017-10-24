@@ -3,34 +3,35 @@
       <div id="sidebar">
 
         <div id="widget">
-                <script>
-                  function initMap() {
-                    <% if @arrprestations.length > 0 %>
-                        var uluru = {lat: <%= @arrprestations[0].latitude %>, lng: <%= @arrprestations[0].longitude %>};
-                        var map = new google.maps.Map(document.getElementById('widget'), {
-                          zoom: 10,
-                          center: uluru
-                        });
-                    <% else %>
-                        var uluru = {lat: 48.866667, lng: 2.333333};
-                        var map = new google.maps.Map(document.getElementById('widget'), {
-                          zoom: 4,
-                          center: uluru
-                        });
-                    <% end %>
+          <script>
+            function initMap() {
+              <% if @prestations.length > 0 %>
+                  var uluru = {lat: <%= @prestations[0].latitude %>, lng: <%= @prestations[0].longitude %>};
+                  var map = new google.maps.Map(document.getElementById('widget'), {
+                      zoom: 13,
+                    center: uluru
+                  });
+                <% else %>
+                  var uluru = {lat: 48.866667, lng: 2.333333};
+                  var map = new google.maps.Map(document.getElementById('widget'), {
+                  zoom: 4,
+                  center: uluru
+                });
+              <% end %>
 
-                    <% @arrprestations.each do |prestation| %>
-                    var marker = new google.maps.Marker({
-                      position: {lat: <%= prestation.latitude %>, lng: <%= prestation.longitude %>},
-                      map: map,
-                      title: "<%= prestation.listing_name %>"
-                    });
-                    <% end %>
-                  }
-                </script>
-                <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRw26oLIS-kzyqa1TPC3O9hGd-COyFr8M&callback=initMap">
-                </script>
+              <% @prestations.each do |prestation| %>
+                var marker = new google.maps.Marker({
+                position: {lat: <%= prestation.latitude %>, lng: <%= prestation.longitude %>},
+                map: map,
+                title: "<%= prestation.listing_name %>",
+                icon: '../assets/caps-ggl.png'
+              });
+              <% end %>
+            }
+          </script>
+          <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuSYjCQ3xtOyrQ8C1QiuAy_Qsyr3xEPwg&callback=initMap">
+          </script>
         </div>
 
 
@@ -39,7 +40,7 @@
       <div id="article">
         <div class="row">
           <div class="col-sm-12 col-md-12">
-            <%= search_form_for @search, url: search_path do |f| %>
+            <%= search_form_for @q, url: search_path do |f| %>
               <div class="row">
                 <div class="col-md-3">
                   <%= text_field_tag :start_date, params[:start_date], placeholder:"Début", class:"form-control" %>
@@ -114,10 +115,10 @@
                       <% end %>
                   <hr>
                   <div class="row">
-                    <% if @arrprestations.empty? %>
+                    <% if @prestations.empty? %>
                             Aucune annonce ne correpond à votre recherche.
                     <% else %>
-                      <% @arrprestations.each do |prestation| %>
+                      <% @prestations.each do |prestation| %>
                     <div class="col-md-4">
                       <div class="panel panel-default">
                         <div class="panel-heading preview">

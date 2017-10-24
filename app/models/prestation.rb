@@ -12,6 +12,8 @@ class Prestation < ApplicationRecord
   validates :address, presence: true
   validates :price, numericality: {only_integer: true, greater_than: 5}
 
+  scope :active, -> { where(active: true) }
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
